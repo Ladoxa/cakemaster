@@ -1,18 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
     tools:context=".MainActivity">
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:layout_gravity="center">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/formCakeStartText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|fill_vertical"
+            android:padding="16dp"
+            android:text="@string/formCakeStart" />
+
+        <TextView
+            android:id="@+id/formCakeEndText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|fill_vertical"
+            android:padding="16dp"
+            android:text="@string/formCakeEnd" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:layout_gravity="center_vertical">
+
+        <Spinner
+            android:id="@+id/startFormSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/shape"
+            android:padding="16dp" />
+
+        <Spinner
+            android:id="@+id/endFormSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/shape"
+            android:padding="16dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:layout_gravity="center_vertical">
+
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:padding="16dp"
+            android:gravity="center_horizontal"
+            android:hint="@string/diametr" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:padding="16dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="center_horizontal"
+            android:hint="@string/diametr" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:layout_gravity="center_vertical">
+
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:padding="16dp"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"
+            android:text="0"
+            android:hint="@string/diametr" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:padding="16dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"
+            android:text="0"
+            android:hint="@string/diametr" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/factor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="@string/factor_button"
+        android:onClick="onClickFactor"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/factor2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text=":"
+        android:textSize="30dp"/>
+
+</LinearLayout>
