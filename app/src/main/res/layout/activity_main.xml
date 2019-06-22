@@ -4,23 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/cake2"
+    android:backgroundTintMode="multiply"
     android:orientation="vertical"
-    android:padding="32dp"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/formCakeStartText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center|fill_vertical"
+            android:layout_gravity="center"
+            android:layout_weight="1"
             android:padding="16dp"
             android:text="@string/formCakeStart" />
 
@@ -28,7 +30,8 @@
             android:id="@+id/formCakeEndText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center|fill_vertical"
+            android:layout_gravity="center"
+            android:layout_weight="1"
             android:padding="16dp"
             android:text="@string/formCakeEnd" />
 
@@ -38,86 +41,89 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal"
-        android:padding="12dp"
-        android:layout_gravity="center_vertical">
+        android:padding="4dp">
 
         <Spinner
             android:id="@+id/startFormSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/shape"
-            android:padding="16dp" />
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="16dp"/>
 
         <Spinner
             android:id="@+id/endFormSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/shape"
-            android:padding="16dp"/>
-
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="16dp" /> <!--android:entries="@array/shape"-->
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="12dp"
-        android:layout_gravity="center_vertical">
+        android:padding="4dp">
 
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:hint="@string/diametr"
             android:inputType="numberSigned"
-            android:padding="16dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/diametr" />
+            android:padding="16dp" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:hint="@string/diametr"
             android:inputType="numberSigned"
-            android:padding="16dp"
-            android:layout_marginLeft="100dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/diametr" />
+            android:padding="16dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="12dp"
-        android:layout_gravity="center_vertical">
+        android:padding="12dp">
 
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:hint="@string/diametr"
             android:inputType="numberSigned"
             android:padding="16dp"
-            android:gravity="center_horizontal"
-            android:visibility="invisible"
             android:text="0"
-            android:hint="@string/diametr" />
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/editText4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:hint="@string/diametr"
             android:inputType="numberSigned"
             android:padding="16dp"
-            android:layout_marginLeft="100dp"
-            android:gravity="center_horizontal"
-            android:visibility="invisible"
             android:text="0"
-            android:hint="@string/diametr" />
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -126,10 +132,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:text="@string/factor_button"
+        android:layout_marginTop="10dp"
         android:onClick="onClickFactor"
-        android:textSize="30dp"/>
+        android:text="@string/factor_button"
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/factor2Text"
@@ -138,6 +144,18 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:text=":"
-        android:textSize="30dp"/>
+        android:textSize="30dp" />
+
+
+    <Button
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:onClick="onClickTest"
+        android:visibility="invisible"
+        android:text="Тестовая кнопка"
+        android:textSize="20sp" />
 
 </LinearLayout>
