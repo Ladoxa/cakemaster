@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:entries="@array/shape"
             android:padding="16dp"/>
 
         <Spinner
@@ -59,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:entries="@array/shape"
             android:padding="16dp" /> <!--android:entries="@array/shape"-->
     </LinearLayout>
 

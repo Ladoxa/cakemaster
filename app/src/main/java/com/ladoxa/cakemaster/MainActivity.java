@@ -85,7 +85,7 @@ public class MainActivity extends Activity  {
             }
         });
 
-        dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, names );
+        dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.shape) );
 
         spinnerShape.setAdapter(dataAdapter);
         spinnerShape2.setAdapter(dataAdapter);
@@ -119,18 +119,6 @@ public class MainActivity extends Activity  {
                 String s = String.format("%.2f",coefficient.count(a, c, b, d));
                 textView.setText(s);
             }
-        }
-    }
-
-
-
-
-    public void onItemSelected2(AdapterView<?> parent, View view, int position, long id) {
-        switch (position){
-            case 0:
-                editText3.setVisibility(View.INVISIBLE);
-                break;
-
         }
     }
 
