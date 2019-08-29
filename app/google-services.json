@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "814642172350",
+    "firebase_url": "https://cakemaster-25b46.firebaseio.com",
+    "project_id": "cakemaster-25b46",
+    "storage_bucket": "cakemaster-25b46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814642172350:android:87eb5b3a0ebf37e0",
+        "android_client_info": {
+          "package_name": "com.ladoxa.cakemaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814642172350-22u0tkfjd8hf7b8lsu1dmclpb30sj050.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ladoxa.cakemaster",
+            "certificate_hash": "78426f84a5b4d7e23659321fa6903e3677313447"
+          }
+        },
+        {
+          "client_id": "814642172350-v1ul2f073grekbiqu7r7g7141pppee8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQdmQWVlS2saprGZ6h0Z2--kqiMs3LN5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814642172350-v1ul2f073grekbiqu7r7g7141pppee8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

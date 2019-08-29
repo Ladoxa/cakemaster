@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">CakeMaster</string>
+    <string name="app_name">Корица</string>
     <string name="formCakeEnd">Форма которая есть:</string>
     <string name="formCakeStart">Форма в рецепте:</string>
     <string name="diametr">Диаметр</string>
-    <string name="factor_button">Коэфициент:</string>
+    <string name="factor_button">Коэффициент:</string>
+    <string name="next_btn">Next</string>
     <string-array name="shape">
         <item>Круглая</item>
         <item>Прямоугольная</item>

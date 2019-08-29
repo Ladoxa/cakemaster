@@ -112,7 +112,7 @@
             android:hint="@string/diametr"
             android:inputType="numberSigned"
             android:padding="16dp"
-            android:text="0"
+            android:text="1"
             android:visibility="invisible" />
 
         <EditText
@@ -124,7 +124,7 @@
             android:hint="@string/diametr"
             android:inputType="numberSigned"
             android:padding="16dp"
-            android:text="0"
+            android:text="1"
             android:visibility="invisible" />
 
     </LinearLayout>
@@ -137,7 +137,7 @@
         android:layout_marginTop="10dp"
         android:onClick="onClickFactor"
         android:text="@string/factor_button"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/factor2Text"
@@ -145,19 +145,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:text=":"
-        android:textSize="30dp" />
-
+        android:textSize="30sp" />
 
     <Button
-        android:id="@+id/test"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:onClick="onClickTest"
-        android:visibility="invisible"
-        android:text="Тестовая кнопка"
-        android:textSize="20sp" />
+        android:layout_marginTop="10dp"
+        android:onClick="onClickNext"
+        android:text="@string/next_btn"
+        android:textSize="30sp" />
+
 
 </LinearLayout>

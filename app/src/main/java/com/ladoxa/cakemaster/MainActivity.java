@@ -1,8 +1,8 @@
 package com.ladoxa.cakemaster;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -27,7 +31,10 @@ public class MainActivity extends Activity  {
     TextView textView;
     ArrayAdapter dataAdapter;
 
-    String[] names = {"Круглая", "Прямоугольная"};
+    private FirebaseDatabase database; // Добавили БД
+    private DatabaseReference myRef;
+
+//    String[] names = {"Круглая", "Прямоугольная"};
 
 
     @Override
@@ -45,17 +52,26 @@ public class MainActivity extends Activity  {
         stringSpinner2 = String.valueOf(spinnerShape2.getSelectedItem());
         textView = (TextView) findViewById(R.id.factor2Text);
 
+
+        // Инициализируем БД
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("items");
+
+
         spinnerShape.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0: {
-                       editText3.setVisibility(View.INVISIBLE);
+                        editText3.setVisibility(View.INVISIBLE);
+//                        myRef.push().setValue(position);
                         break;
                     }
-                    case 1:
-                            editText3.setVisibility(View.VISIBLE);
+                    case 1: {
+                        editText3.setText(null);
+                        editText3.setVisibility(View.VISIBLE);
                         break;
+                    }
                 }
             }
 
@@ -74,6 +90,7 @@ public class MainActivity extends Activity  {
                         break;
                     }
                     case 1:
+                        editText4.setText(null);
                         editText4.setVisibility(View.VISIBLE);
                         break;
                 }
@@ -94,32 +111,53 @@ public class MainActivity extends Activity  {
 
     public void onClickFactor(View view) {
 
+        double a = 1;
+        double b = 1;
+        double c = 1;
+        double d = 1;
 
-        double a = Double.parseDouble(String.valueOf(editText1.getText()));
-        double b = Double.parseDouble(String.valueOf(editText2.getText()));
-        double c = Double.parseDouble(String.valueOf(editText3.getText()));
-        double d = Double.parseDouble(String.valueOf(editText4.getText()));
+
+        myRef.setValue("Hello, World!2");
+
+        if (!editText1.getText().toString().equals("")) {
+            a = Double.parseDouble(String.valueOf(editText1.getText()));
+        } else Toast.makeText(this,"Введите нужные размеры",Toast.LENGTH_SHORT).show();
+
+        if (!editText2.getText().toString().equals("")) {
+            b = Double.parseDouble(String.valueOf(editText2.getText()));
+        } else Toast.makeText(this,"Введите нужные размеры",Toast.LENGTH_SHORT).show();
+
+        if (!editText3.getText().toString().equals("")) {
+           c = Double.parseDouble(String.valueOf(editText3.getText()));
+        } else Toast.makeText(this,"Введите нужные размеры",Toast.LENGTH_SHORT).show();
+
+        if (!editText4.getText().toString().equals("")) {
+           d = Double.parseDouble(String.valueOf(editText4.getText()));
+        } else Toast.makeText(this,"Введите нужные размеры",Toast.LENGTH_SHORT).show();
 
 
-        if (stringSpinner1.equals("Круглая")) {
-            if (stringSpinner2.equals("Круглая")){
-                String s = String.format("%.2f",coefficient.count(a, b));
-                textView.setText(s);
+        if (spinnerShape.getSelectedItemPosition() == 0) {
+            if (spinnerShape2.getSelectedItemPosition() == 0){
+                String s = String.format("%.2f",coefficient.circles(a, b));
+                textView.setText(s); //(s+" = "+ a + "*" + b);
             } else {
-                String s = String.format("%.2f",coefficient.count(a, b, d));
-                textView.setText(s);
+                String s = String.format("%.2f",coefficient.circleRect(b, a, d));
+                textView.setText(s);//(s+" = "+ b + "*" + d +" / "+ a + "^2");
             }
         }
 
-        if (stringSpinner1.equals("Прямоугольная")) {
-            if (stringSpinner2.equals("Круглая")){
-                String s = String.format("%.2f",coefficient.count(a, c, d));
-                textView.setText(s);
+        if (spinnerShape.getSelectedItemPosition() == 1) {
+            if (spinnerShape2.getSelectedItemPosition() == 0){
+                String s = String.format("%.2f",coefficient.rectCircle(a, b, c));
+                textView.setText(s);//(s + " =" + a + "*" + c + "/ " + b + "^2");
             } else {
-                String s = String.format("%.2f",coefficient.count(a, c, b, d));
-                textView.setText(s);
+                String s = String.format("%.2f",coefficient.rectangles(b, d, a, c));
+                textView.setText(s);//(s +" =("+ b + "*" + d +")/("+ a + "*" + c);
             }
         }
     }
 
+    public void onClickNext(View view) {
+        startActivity(new Intent(MainActivity.this, TestUploadPhotoActivity.class));
+    }
 }
